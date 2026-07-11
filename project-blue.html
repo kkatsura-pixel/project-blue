@@ -474,9 +474,9 @@
 
   .subhead{
     font-family: 'Anton', sans-serif;
-    font-size: 14px;
-    letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.7);
+    font-size: 17px;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
     margin: 56px 0 20px;
   }
 
@@ -964,7 +964,7 @@
   </div>
 
   <div class="mvp-results" id="mvp-results" style="display:none;"></div>
-  <p class="mvp-voted-note" id="mvp-voted-note" style="display:none;">投票ありがとうございました。結果はリアルタイムの目安です。</p>
+  <p class="mvp-voted-note" id="mvp-voted-note" style="display:none;">何度でも投票できます。押すたびに結果が更新されます。</p>
 </section>
 
 <!-- ============ ③ LEGACY, 2002 ============ -->
@@ -1209,8 +1209,7 @@
 -->
 <script type="text/javascript">
   const MVP_WORKER_URL = ''; // 例: 'https://projectblue-mvp.your-subdomain.workers.dev'
-  const MVP_PLAYERS = ['久保建英','堂安律','伊東純也','冨安健洋','谷口彰悟','鎌田大地','上田綺世','前田大然','田中碧','佐野海舟'];
-  const MVP_VOTE_KEY = 'projectblue_mvp_voted';
+  const MVP_PLAYERS = ['早川友基','大迫敬介','鈴木彩艶','長友佑都','谷口彰悟','板倉滉','渡辺剛','冨安健洋','伊藤洋輝','瀬古歩夢','菅原由勢','鈴木淳之介','伊東純也','鎌田大地','小川航基','前田大然','堂安律','上田綺世','田中碧','町野修斗','中村敬斗','佐野海舟','久保建英','鈴木唯人','塩貝健人','後藤啓介'];
   const MVP_TALLY_KEY = 'projectblue_mvp_tally_local';
 
   function getLocalTally(){
@@ -1241,8 +1240,6 @@
       '</div>';
     }).join('');
     resultsEl.style.display = 'block';
-    document.getElementById('mvp-list').style.display = 'none';
-    document.getElementById('mvp-voted-note').style.display = 'block';
   }
 
   async function castMvpVote(playerName){
@@ -1255,7 +1252,6 @@
         });
         const data = await res.json();
         if (data && data.tally) {
-          localStorage.setItem(MVP_VOTE_KEY, playerName);
           renderMvpResults(data.tally);
           return;
         }
@@ -1264,19 +1260,28 @@
     const tally = getLocalTally();
     tally[playerName] = (tally[playerName] || 0) + 1;
     saveLocalTally(tally);
-    localStorage.setItem(MVP_VOTE_KEY, playerName);
     renderMvpResults(tally);
   }
 
-  window.addEventListener('load', function(){
-    const alreadyVoted = localStorage.getItem(MVP_VOTE_KEY);
-    if (alreadyVoted) {
-      renderMvpResults(getLocalTally());
-      return;
+  async function fetchMvpTally(){
+    if (MVP_WORKER_URL) {
+      try {
+        const res = await fetch(MVP_WORKER_URL);
+        const data = await res.json();
+        if (data && data.tally) {
+          renderMvpResults(data.tally);
+          return;
+        }
+      } catch(e) { /* フォールバックへ */ }
     }
+    renderMvpResults(getLocalTally());
+  }
+
+  window.addEventListener('load', function(){
+    document.getElementById('mvp-voted-note').style.display = 'block';
+    fetchMvpTally();
     document.querySelectorAll('.mvp-item').forEach(function(btn){
       btn.addEventListener('click', function(){
-        document.querySelectorAll('.mvp-item').forEach(function(b){ b.disabled = true; });
         castMvpVote(btn.getAttribute('data-player'));
       });
     });
