@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT BLUE | NEXT HOME JAPAN</title>
+<meta name="description" content="世界中が熱狂する、世界最大のスポーツイベント。その感動を、未来の日本へつなぐ。PROJECT BLUEは市民主導のワールドカップ日本開催機運醸成プロジェクトです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@400;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0F1B3D;
+    --navy-sub: #1B2A5E;
+    --white: #FFFFFF;
+    --red: #BC002D;
+    --red-soft: rgba(188,0,45,0.15);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .display{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .mono{
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  .eyebrow{
+    font-family: 'Anton', sans-serif;
+    color: var(--red);
+    letter-spacing: 0.35em;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+
+  section{
+    padding: 96px 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px){
+    section{ padding: 64px 20px; }
+  }
+
+  /* ===== HEADER / HERO ===== */
+
+  .hero{
+    padding: 72px 24px 56px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy) 85%, var(--navy-sub) 100%);
+  }
+
+  .hero .live-badge{
+    display: inline-block;
+    border: 1px solid var(--red);
+    color: var(--red);
+    font-family: 'Anton', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+
+  .hero .live-badge .dot{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 1.6s infinite;
+  }
+
+  @keyframes pulse{
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero .name{
+    font-size: clamp(56px, 14vw, 140px);
+    line-height: 0.9;
+    margin: 0;
+  }
+
+  .hero .sub{
+    font-family: 'Anton', sans-serif;
+    color: var(--red);
+    font-size: clamp(16px, 3.5vw, 26px);
+    letter-spacing: 0.5em;
+    margin: 14px 0 0;
+  }
+
+  .hero .rule{
+    width: 160px;
+    height: 4px;
+    background: var(--red);
+    margin: 32px auto;
+    border: none;
+  }
+
+  .hero .catch{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 900;
+    font-size: clamp(26px, 6vw, 48px);
+    margin: 0 0 48px;
+  }
+
+  .hero .tagline{
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: clamp(16px, 2.8vw, 20px);
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  .hero .name, .hero .catch, .hero .tagline,
+  .section-head h2, .section-head p,
+  #future p{
+    text-wrap: balance;
+  }
+
+  .scroll-hint{
+    margin-top: 40px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ===== SECTION HEADINGS ===== */
+
+  .section-head{
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .section-head h2{
+    font-size: clamp(26px, 5vw, 42px);
+    margin: 8px 0 20px;
+  }
+
+  .section-head p{
+    max-width: 520px;
+    margin: 0 auto;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+  }
+
+  /* ===== SECTION 1: WORLD FAN CULTURE ===== */
+
+  #fan-culture{
+    max-width: 1200px;
+  }
+
+  .fan-grid{
+    columns: 3 260px;
+    column-gap: 14px;
+  }
+
+  @media (max-width: 720px){
+    .fan-grid{ columns: 2 160px; }
+  }
+
+  .fan-item{
+    break-inside: avoid;
+    margin-bottom: 14px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--navy-sub);
+  }
+
+  .fan-item iframe, .fan-item blockquote{
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* ===== EXTRA: FUN & VOTE ===== */
+
+  #extra{ background: var(--navy); }
+
+  .trivia-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 56px;
+  }
+
+  .trivia-card{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 20px;
+  }
+
+  .trivia-card p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+
+  .mvp-note{
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin: -8px 0 24px;
+  }
+
+  .mvp-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .mvp-item{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    padding: 14px 20px;
+    color: var(--white);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .mvp-item:hover{ border-color: var(--red); }
+  .mvp-item:disabled{ cursor: default; opacity: 0.6; }
+
+  .mvp-results{
+    margin-top: 8px;
+  }
+
+  .mvp-result-row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .mvp-result-name{
+    width: 96px;
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .mvp-result-bar-track{
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+  }
+
+  .mvp-result-bar-fill{
+    height: 100%;
+    background: #FF3355;
+    border-radius: 999px;
+  }
+
+  .mvp-result-pct{
+    width: 48px;
+    flex-shrink: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    text-align: right;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .mvp-voted-note{
+    margin-top: 16px;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .quiz-card{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 560px;
+    margin: 0 auto 56px;
+  }
+
+  .quiz-progress-label{
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    margin: 0 0 12px;
+    font-family: 'Anton', sans-serif;
+  }
+
+  .quiz-question{
+    color: var(--white);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 20px;
+  }
+
+  .quiz-options{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .quiz-option{
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    color: var(--white);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 12px 16px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .quiz-option.correct{
+    background: rgba(255,51,85,0.15);
+    border-color: #FF3355;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .quiz-option.wrong{
+    opacity: 0.4;
+  }
+
+  .quiz-option:disabled{ cursor: default; }
+
+  .quiz-explain{
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    display: none;
+  }
+
+  .quiz-explain p{
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .quiz-progress-bar{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .quiz-progress-track{
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .quiz-progress-fill{
+    height: 100%;
+    background: #FF3355;
+  }
+
+  .quiz-progress-count{
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  .quiz-result{
+    display: none;
+    text-align: center;
+  }
+
+  .quiz-result .quiz-result-score{
+    font-family: 'Anton', sans-serif;
+    font-size: 36px;
+    color: #FF3355;
+    margin: 0 0 8px;
+  }
+
+  .quiz-result p{
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  /* ===== SECTION 2: THE WORLD IS WATCHING ===== */
+
+  #watching{
+    background: var(--navy-sub);
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #watching > .inner{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .stats-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 40px 0 56px;
+  }
+
+  .stat-card{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 20px;
+  }
+
+  .stat-card .label{
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+  }
+
+  .stat-card .value{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 26px;
+    font-weight: 700;
+    color: #FF3355;
+    text-shadow: 0 0 18px rgba(255,51,85,0.5);
+  }
+
+  .stat-card .source{
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+
+  .stat-card .source:hover{
+    border-color: var(--red);
+    color: var(--red);
+  }
+
+  .subhead{
+    font-family: 'Anton', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.7);
+    margin: 56px 0 20px;
+  }
+
+  #trends-widget{
+    background: var(--white);
+    border-radius: 6px;
+    padding: 8px;
+    min-height: 300px;
+  }
+
+  .news-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .news-list li{
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding: 14px 0;
+  }
+
+  .news-list a{
+    color: var(--white);
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .news-list a:hover{ color: var(--red); }
+
+  .news-list .src{
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-right: 8px;
+  }
+
+  .video-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .video-frame{
+    position: relative;
+    padding-top: 56.25%;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .video-frame iframe{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* ===== SECTION 3: LEGACY ===== */
+
+  #legacy .subhead{ color: rgba(255,255,255,0.6); }
+
+  /* ===== SECTION 4: FUTURE / CTA ===== */
+
+  #future{
+    text-align: center;
+    background: radial-gradient(circle at 50% 120%, rgba(188,0,45,0.35), transparent 60%), var(--navy);
+    padding-bottom: 120px;
+  }
+
+  #future .future-headline{
+    font-size: clamp(28px, 6vw, 50px);
+    margin: 0 0 32px;
+  }
+
+  #future .future-sub{
+    font-weight: 400;
+    font-size: clamp(15px, 2.6vw, 19px);
+    color: rgba(255,255,255,0.85);
+    margin: 0 0 40px;
+  }
+
+  #future .final-line{
+    color: var(--red);
+    font-size: clamp(32px, 7vw, 58px);
+    margin: 0 0 48px;
+  }
+
+  .pre-cta{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: clamp(13px, 2vw, 15px);
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .cta-button{
+    display: inline-block;
+    margin-top: 28px;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.1em;
+    font-size: clamp(20px, 3.5vw, 28px);
+    padding: 22px 56px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .cta-button:active{ transform: scale(0.98); }
+
+  .counter{
+    margin-top: 36px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: clamp(16px, 2.5vw, 19px);
+    color: rgba(255,255,255,0.75);
+  }
+
+  .counter .num{
+    font-size: clamp(26px, 4.5vw, 36px);
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  /* ===== THANKS MODAL ===== */
+
+  .thanks-overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(4,8,20,0.85);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .thanks-overlay.is-open{ display: flex; }
+
+  .thanks-modal{
+    background: var(--navy-sub);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 48px 32px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .thanks-modal .thanks-line{
+    font-weight: 400;
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    margin: 0 0 24px;
+  }
+
+  .thanks-modal .thanks-you{
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin: 0 0 8px;
+  }
+
+  .thanks-modal .thanks-brand{
+    font-family: 'Anton', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+
+  .thanks-modal .thanks-role{
+    font-family: 'Anton', sans-serif;
+    color: var(--red);
+    font-size: 15px;
+    letter-spacing: 0.3em;
+    margin: 12px 0 4px;
+  }
+
+  .thanks-modal .thanks-number{
+    font-family: 'Roboto Mono', monospace;
+    font-size: clamp(28px, 6vw, 40px);
+    font-weight: 700;
+    color: #FF3355;
+    text-shadow: 0 0 18px rgba(255,51,85,0.5);
+    margin: 4px 0 24px;
+  }
+
+  .thanks-modal .thanks-close{
+    display: inline-block;
+    margin-top: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    padding: 10px 28px;
+    cursor: pointer;
+  }
+
+  /* ===== FOOTER ===== */
+
+  footer{
+    padding: 48px 24px 64px;
+    text-align: center;
+    background: var(--navy-sub);
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  footer .jp{ margin-bottom: 20px; }
+  footer .en{ font-family: 'Noto Sans JP', sans-serif; opacity: 0.75; }
+  footer .tags{
+    margin-top: 28px;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--red);
+    font-size: 12px;
+  }
+
+  .jfa-declaration{
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .jfa-title{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.15em;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    margin: 0 0 24px;
+  }
+
+  .jfa-heading{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    color: var(--red);
+    margin: 20px 0 8px;
+  }
+
+  .jfa-body{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+  }
+
+  .jfa-dream{
+    font-family: 'Anton', sans-serif;
+    font-size: 22px;
+    color: rgba(255,255,255,0.85);
+    margin: 32px 0 24px;
+    letter-spacing: 0.05em;
+  }
+
+  .jfa-dream span{
+    display: block;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    margin-top: 6px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .jfa-banner{ display: inline-block; }
+  .jfa-banner img{ max-width: 200px; height: auto; }
+
+  a{ color: inherit; }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER / HERO ============ -->
+<header class="hero">
+  <span class="live-badge"><span class="dot"></span>WORLD CUP LIVE HUB</span>
+  <h1 class="name display">PROJECT BLUE</h1>
+  <p class="sub">NEXT HOME JAPAN</p>
+  <hr class="rule">
+  <p class="catch">もう一度、日本で。</p>
+  <p class="tagline">世界中が熱狂する、世界最大のスポーツイベント。<br>その感動を、未来の日本へつなぐ。</p>
+  <div class="scroll-hint">SCROLL ↓</div>
+</header>
+
+<!-- ============ ① WORLD FAN CULTURE ============ -->
+<section id="fan-culture">
+  <div class="section-head">
+    <span class="eyebrow">01 / WORLD FAN CULTURE</span>
+    <h2 class="display">世界中が、この瞬間を生きている。</h2>
+    <p>歓声は、ピッチだけではない。世界中の街が、ワールドカップに染まっている。</p>
+  </div>
+
+  <div class="fan-grid">
+    <!--
+      Instagram埋め込み: 各投稿の「埋め込み」共有オプションから取得したコードに差し替えてください。
+      下記はプレースホルダーの構造です。実際は blockquote.instagram-media + 末尾の embed.js で動作します。
+    -->
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZi_fhWoNAm/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DZi_fhWoNAm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DZi_fhWoNAm/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Louis Ragnar Andry(@zlagenx)がシェアした投稿</a></p></div></blockquote>
+    </div>
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DaM_w0ogxNZ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DaM_w0ogxNZ/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DaM_w0ogxNZ/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Nelli Sharpataia(@nelyshp)がシェアした投稿</a></p></div></blockquote>
+    </div>
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZvyBu0pOu2/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DZvyBu0pOu2/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DZvyBu0pOu2/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Icons X Icons(@iconsxicons_ai)がシェアした投稿</a></p></div></blockquote>
+    </div>
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZpTdY_kwTr/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DZpTdY_kwTr/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DZpTdY_kwTr/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Japan Informer(@japan_informer)がシェアした投稿</a></p></div></blockquote>
+    </div>
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZYNcYnN8Xe/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DZYNcYnN8Xe/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DZYNcYnN8Xe/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Hailee(@haileeaitwin)がシェアした投稿</a></p></div></blockquote>
+    </div>
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZupy_ahwWP/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DZupy_ahwWP/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DZupy_ahwWP/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Z-IDY (지아이디)(@zidylab)がシェアした投稿</a></p></div></blockquote>
+    </div>
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZdOClNR3Vg/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DZdOClNR3Vg/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DZdOClNR3Vg/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Lisa AI: Avatar &amp; Image Maker(@lisaai_community)がシェアした投稿</a></p></div></blockquote>
+    </div>
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZnayeVstGi/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DZnayeVstGi/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DZnayeVstGi/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Freya Louise(@freyalouiselovr)がシェアした投稿</a></p></div></blockquote>
+    </div>
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZ6hFJXIWZq/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DZ6hFJXIWZq/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DZ6hFJXIWZq/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">META GOAL(@metaagoal)がシェアした投稿</a></p></div></blockquote>
+    </div>
+    <div class="fan-item">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZk9g5gMudQ/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DZk9g5gMudQ/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">この投稿をInstagramで見る</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DZk9g5gMudQ/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Malisha(@malisha_club)がシェアした投稿</a></p></div></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ② THE WORLD IS WATCHING ============ -->
+<section id="watching">
+  <div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">02 / THE WORLD IS WATCHING</span>
+      <h2 class="display">この大会は、世界中が見つめている。</h2>
+      <p>検索される回数。見られる回数。語られる回数。<br>世界の視線が、今、この大会へ集まっている。</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="label">FIFA大会収益</div>
+        <div class="value">約89億ドル</div>
+        <a class="source" href="https://www.sportspro.com/analysis/sponsorship-marketing/fifa-world-cup-2026-business-revenue-ticketing-broadcast-sponsorship/" target="_blank" rel="noopener">SportsPro</a>
+      </div>
+      <div class="stat-card">
+        <div class="label">世界経済効果(FIFA/WTO共同調査)</div>
+        <div class="value">約801億ドル</div>
+        <a class="source" href="https://www.sportspro.com/analysis/sponsorship-marketing/fifa-world-cup-2026-business-revenue-ticketing-broadcast-sponsorship/" target="_blank" rel="noopener">SportsPro</a>
+      </div>
+      <div class="stat-card">
+        <div class="label">チケット販売</div>
+        <div class="value">600万枚超</div>
+        <a class="source" href="https://www.pbs.org/newshour/world/fact-checking-claims-about-unprecedented-demand-for-world-cup-tickets" target="_blank" rel="noopener">PBS NewsHour</a>
+      </div>
+      <div class="stat-card">
+        <div class="label">放映権収入</div>
+        <div class="value">約39億ドル</div>
+        <a class="source" href="https://www.forbes.com/sites/brettknight/2026/07/01/the-numbers-behind-the-2026-world-cup/" target="_blank" rel="noopener">Forbes</a>
+      </div>
+      <div class="stat-card">
+        <div class="label">スポンサー収益</div>
+        <div class="value">約28億ドル超</div>
+        <a class="source" href="https://www.docsports.com/2026/fifa-world-cup-financial-statistics.html" target="_blank" rel="noopener">docsports</a>
+      </div>
+    </div>
+
+    <div class="subhead">SEARCH TRENDS</div>
+    <div id="trends-widget"></div>
+
+    <div class="subhead">TODAY'S HEADLINES</div>
+    <ul class="news-list" id="news-jp">
+      <li><a href="#">見出しを読み込み中...</a></li>
+    </ul>
+    <ul class="news-list" id="news-en">
+      <li><a href="#">Loading headlines...</a></li>
+    </ul>
+
+    <div class="subhead">2026 FIFA WORLD CUP</div>
+    <div class="video-grid">
+      <div class="video-frame"><iframe src="https://www.youtube.com/embed/gXQB_3L16hA" loading="lazy" allowfullscreen></iframe></div>
+      <div class="video-frame"><iframe src="https://www.youtube.com/embed/kyUYI8t9a-s" loading="lazy" allowfullscreen></iframe></div>
+      <div class="video-frame"><iframe src="https://www.youtube.com/embed/TFAKbuGVNHc" loading="lazy" allowfullscreen></iframe></div>
+      <div class="video-frame"><iframe src="https://www.youtube.com/embed/Fd_KYjbmws4" loading="lazy" allowfullscreen></iframe></div>
+      <div class="video-frame"><iframe src="https://www.youtube.com/embed/c3AHf5gSyiA" loading="lazy" allowfullscreen></iframe></div>
+      <div class="video-frame"><iframe src="https://www.youtube.com/embed/tpJ0pBGLxxQ" loading="lazy" allowfullscreen></iframe></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXTRA: QUIZ & MVP VOTE ============ -->
+<section id="extra">
+  <div class="section-head">
+    <span class="eyebrow">EXTRA / QUIZ &amp; VOTE</span>
+    <h2 class="display">数字だけじゃない、大会の楽しみ方。</h2>
+    <p>大会にまつわるクイズと、みんなで選ぶMVP投票。</p>
+  </div>
+
+  <div class="subhead">大会トリビアクイズ(全5問)</div>
+  <div class="quiz-card">
+    <p class="quiz-progress-label" id="quiz-progress-label">QUESTION 1 / 5</p>
+    <p class="quiz-question" id="quiz-question"></p>
+    <div class="quiz-options" id="quiz-options"></div>
+    <div class="quiz-explain" id="quiz-explain"><p id="quiz-explain-text"></p></div>
+    <div class="quiz-progress-bar">
+      <div class="quiz-progress-track"><div class="quiz-progress-fill" id="quiz-progress-fill" style="width:20%;"></div></div>
+      <span class="quiz-progress-count" id="quiz-progress-count">1/5</span>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <p class="quiz-result-score" id="quiz-result-score">0/5</p>
+      <p>正解でした</p>
+    </div>
+  </div>
+
+  <div class="subhead">あなたが選ぶ今大会の日本代表MVPは?</div>
+  <p class="mvp-note">招集メンバー全員が対象です。1人を選んで投票してください。</p>
+
+  <div class="mvp-list" id="mvp-list">
+    <button class="mvp-item" data-player="早川友基">早川 友基</button>
+    <button class="mvp-item" data-player="大迫敬介">大迫 敬介</button>
+    <button class="mvp-item" data-player="鈴木彩艶">鈴木 彩艶</button>
+    <button class="mvp-item" data-player="長友佑都">長友 佑都</button>
+    <button class="mvp-item" data-player="谷口彰悟">谷口 彰悟</button>
+    <button class="mvp-item" data-player="板倉滉">板倉 滉</button>
+    <button class="mvp-item" data-player="渡辺剛">渡辺 剛</button>
+    <button class="mvp-item" data-player="冨安健洋">冨安 健洋</button>
+    <button class="mvp-item" data-player="伊藤洋輝">伊藤 洋輝</button>
+    <button class="mvp-item" data-player="瀬古歩夢">瀬古 歩夢</button>
+    <button class="mvp-item" data-player="菅原由勢">菅原 由勢</button>
+    <button class="mvp-item" data-player="鈴木淳之介">鈴木 淳之介</button>
+    <button class="mvp-item" data-player="伊東純也">伊東 純也</button>
+    <button class="mvp-item" data-player="鎌田大地">鎌田 大地</button>
+    <button class="mvp-item" data-player="小川航基">小川 航基</button>
+    <button class="mvp-item" data-player="前田大然">前田 大然</button>
+    <button class="mvp-item" data-player="堂安律">堂安 律</button>
+    <button class="mvp-item" data-player="上田綺世">上田 綺世</button>
+    <button class="mvp-item" data-player="田中碧">田中 碧</button>
+    <button class="mvp-item" data-player="町野修斗">町野 修斗</button>
+    <button class="mvp-item" data-player="中村敬斗">中村 敬斗</button>
+    <button class="mvp-item" data-player="佐野海舟">佐野 海舟</button>
+    <button class="mvp-item" data-player="久保建英">久保 建英</button>
+    <button class="mvp-item" data-player="鈴木唯人">鈴木 唯人</button>
+    <button class="mvp-item" data-player="塩貝健人">塩貝 健人</button>
+    <button class="mvp-item" data-player="後藤啓介">後藤 啓介</button>
+  </div>
+
+  <div class="mvp-results" id="mvp-results" style="display:none;"></div>
+  <p class="mvp-voted-note" id="mvp-voted-note" style="display:none;">投票ありがとうございました。結果はリアルタイムの目安です。</p>
+</section>
+
+<!-- ============ ③ LEGACY, 2002 ============ -->
+<section id="legacy">
+  <div class="section-head">
+    <span class="eyebrow">03 / LEGACY, 2002</span>
+    <h2 class="display">あの日、日本は世界を迎えた。</h2>
+    <p>あの歓声は、今も多くの人の心に残っている。</p>
+  </div>
+
+  <div class="video-grid">
+    <div class="video-frame"><iframe src="https://www.youtube.com/embed/CrycSGI2lNo" loading="lazy" allowfullscreen></iframe></div>
+    <div class="video-frame"><iframe src="https://www.youtube.com/embed/vLmSZrMJ4us" loading="lazy" allowfullscreen></iframe></div>
+    <div class="video-frame"><iframe src="https://www.youtube.com/embed/DOQlNeq5aXs" loading="lazy" allowfullscreen></iframe></div>
+    <div class="video-frame"><iframe src="https://www.youtube.com/embed/nJQp1fbhbI8" loading="lazy" allowfullscreen></iframe></div>
+    <div class="video-frame"><iframe src="https://www.youtube.com/embed/k5P8JqCVRFU" loading="lazy" allowfullscreen></iframe></div>
+    <div class="video-frame"><iframe src="https://www.youtube.com/embed/Ds-MKbal3Ms" loading="lazy" allowfullscreen></iframe></div>
+  </div>
+</section>
+
+<!-- ============ ④ FUTURE / CTA ============ -->
+<section id="future">
+  <span class="eyebrow">04 / FUTURE</span>
+  <p class="future-headline display" style="margin-top:16px;">世界は、こんなにも<br>熱狂している。</p>
+  <p class="future-sub">この感動を、未来の子どもたちへ。</p>
+  <p class="future-headline display final-line">── 次は、日本で。</p>
+
+  <p class="pre-cta">もう一度、世界を迎えるその日へ。</p>
+
+  <button class="cta-button" id="cta-btn">この想いに参加する</button>
+
+  <div class="counter">
+    応援している人 <span class="num mono" id="counter-num">2,356</span> 人
+  </div>
+</section>
+
+<!-- ============ THANKS MODAL ============ -->
+<div class="thanks-overlay" id="thanks-overlay">
+  <div class="thanks-modal">
+    <p class="thanks-line">ありがとうございます。</p>
+    <p class="thanks-you">あなたは</p>
+    <p class="thanks-brand display">PROJECT BLUE</p>
+    <p class="thanks-role">SUPPORTER</p>
+    <p class="thanks-number mono">No.<span id="thanks-number-value">0</span></p>
+    <p class="thanks-you">になりました。</p>
+    <button class="thanks-close" id="thanks-close">閉じる</button>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <p class="jp">
+    2050年、日本で再びワールドカップを開催する。<br>
+    PROJECT BLUEは、その未来に向けた市民プロジェクトです。
+  </p>
+  <p class="en">
+    Inspired by the dream of 2050 — JFA's vision to host the FIFA World Cup again.<br>
+    PROJECT BLUE is an independent citizen initiative supporting that future.
+  </p>
+  <p class="tags">#次は日本で ／ #NextHomeJapan</p>
+
+  <div class="jfa-declaration">
+    <p class="jfa-title">JFA2005年宣言</p>
+
+    <p class="jfa-heading">JFAの理念</p>
+    <p class="jfa-body">サッカーを通じて豊かなスポーツ文化を創造し、<br>人々の心身の健全な発達と社会の発展に貢献する。</p>
+
+    <p class="jfa-heading">JFAのビジョン</p>
+    <p class="jfa-body">
+      サッカーの普及に努め、スポーツをより身近にすることで、<br>
+      人々が幸せになれる環境を作り上げる。<br>
+      サッカーの強化に努め、日本代表が世界で活躍することで、<br>
+      人々に勇気と希望と感動を与える。<br>
+      常にフェアプレーの精神を持ち、国内の、<br>
+      さらには世界の人々と友好を深め、国際社会に貢献する。
+    </p>
+
+    <p class="jfa-heading">JFAの約束2015</p>
+    <p class="jfa-body">
+      2015年には、世界でトップ10の組織となり、ふたつの目標を達成する。<br>
+      1. サッカーを愛する仲間=サッカーファミリーが500万人になる。<br>
+      2. 日本代表チームは、世界でトップ10のチームとなる。
+    </p>
+
+    <p class="jfa-heading">JFAの約束2050</p>
+    <p class="jfa-body">
+      2050年までに、すべての人々と喜びを分かちあうために、<br>
+      ふたつの目標を達成する。<br>
+      1. サッカーを愛する仲間=サッカーファミリーが1000万人になる。<br>
+      2. FIFAワールドカップを日本で開催し、日本代表チームは<br>
+      その大会で優勝チームとなる。
+    </p>
+
+    <p class="jfa-dream">DREAM<br><span>夢があるから強くなる</span></p>
+
+    <a class="jfa-banner" href="https://www.jfa.jp/" target="_blank" rel="noopener">
+      <img src="https://www.jfa.jp/information/img/bnr_jfajp_300-100.png" alt="JFA.jp 日本サッカー協会 公式サイトへ">
+    </a>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+
+<!-- Instagram embed -->
+<script async src="//www.instagram.com/embed.js"></script>
+
+<!-- Google Trends embed (5キーワード比較) -->
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/3057_RC01/embed_loader.js"></script>
+<script type="text/javascript">
+  function renderTrendsWidget() {
+    if (typeof trends === 'undefined') { return; }
+    trends.embed.renderExploreWidgetTo(
+      document.getElementById('trends-widget'),
+      "TIMESERIES",
+      {
+        comparisonItem: [
+          { keyword: "ワールドカップ", geo: "JP", time: "today 3-m" },
+          { keyword: "W杯 2026", geo: "JP", time: "today 3-m" },
+          { keyword: "World Cup", geo: "", time: "today 3-m" },
+          { keyword: "サムライブルー", geo: "JP", time: "today 3-m" },
+          { keyword: "サッカー日本代表", geo: "JP", time: "today 3-m" }
+        ],
+        category: 0,
+        property: ""
+      },
+      {
+        exploreQuery: "date=today%203-m&q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AB%E3%83%83%E3%83%97",
+        guestPath: "https://trends.google.com:443/trends/embed/"
+      }
+    );
+  }
+  window.addEventListener('load', function(){
+    setTimeout(renderTrendsWidget, 500);
+  });
+</script>
+
+<!-- News headlines (Google News RSS を rss2json 経由で取得) -->
+<script type="text/javascript">
+  async function loadNews(feedUrl, targetId, sourceLabel) {
+    const el = document.getElementById(targetId);
+    try {
+      const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl);
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      if (!data.items || !data.items.length) throw new Error('no items');
+      el.innerHTML = data.items.slice(0, 5).map(function(item){
+        return '<li><span class="src">' + sourceLabel + '</span><a href="' + item.link + '" target="_blank" rel="noopener">' + item.title + '</a></li>';
+      }).join('');
+    } catch (e) {
+      el.innerHTML = '<li><a>ニュースを取得できませんでした(接続時にご確認ください)</a></li>';
+    }
+  }
+
+  window.addEventListener('load', function(){
+    // 日本語版 Google News RSS
+    loadNews('https://news.google.com/rss/search?q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AB%E3%83%83%E3%83%97&hl=ja&gl=JP&ceid=JP:ja', 'news-jp', 'JP');
+    // 英語版 Google News RSS
+    loadNews('https://news.google.com/rss/search?q=World+Cup&hl=en-US&gl=US&ceid=US:en', 'news-en', 'EN');
+  });
+</script>
+
+<!-- 応援人数カウンター -->
+<!--
+  本番では以下の COUNTER_WORKER_URL を、実際にデプロイしたCloudflare WorkerのURLに差し替えてください。
+  Worker側は GET で現在値を返し、POST で +1 して新しい値を返す想定です(KVで永続化)。
+  Workerが未設定の間は、ブラウザのメモリ内だけでカウントアップするフォールバック動作をします。
+-->
+<script type="text/javascript">
+  const COUNTER_WORKER_URL = ''; // 例: 'https://projectblue-counter.your-subdomain.workers.dev'
+  const START_COUNT = 2356;
+  let localCount = START_COUNT;
+  const counterEl = document.getElementById('counter-num');
+  const btn = document.getElementById('cta-btn');
+  const thanksOverlay = document.getElementById('thanks-overlay');
+  const thanksNumberEl = document.getElementById('thanks-number-value');
+  const thanksCloseBtn = document.getElementById('thanks-close');
+
+  function formatNum(n){ return n.toLocaleString('ja-JP'); }
+
+  function showThanks(count){
+    thanksNumberEl.textContent = formatNum(count);
+    thanksOverlay.classList.add('is-open');
+  }
+
+  thanksCloseBtn.addEventListener('click', function(){
+    thanksOverlay.classList.remove('is-open');
+  });
+
+  thanksOverlay.addEventListener('click', function(e){
+    if (e.target === thanksOverlay) {
+      thanksOverlay.classList.remove('is-open');
+    }
+  });
+
+  async function fetchCount(){
+    if (!COUNTER_WORKER_URL) return;
+    try {
+      const res = await fetch(COUNTER_WORKER_URL);
+      const data = await res.json();
+      if (typeof data.count === 'number') {
+        localCount = data.count;
+        counterEl.textContent = formatNum(localCount);
+      }
+    } catch(e) { /* フォールバックのまま表示 */ }
+  }
+
+  async function incrementCount(){
+    if (COUNTER_WORKER_URL) {
+      try {
+        const res = await fetch(COUNTER_WORKER_URL, { method: 'POST' });
+        const data = await res.json();
+        if (typeof data.count === 'number') {
+          localCount = data.count;
+          counterEl.textContent = formatNum(localCount);
+          showThanks(localCount);
+          return;
+        }
+      } catch(e) { /* フォールバックへ */ }
+    }
+    localCount += 1;
+    counterEl.textContent = formatNum(localCount);
+    showThanks(localCount);
+  }
+
+  btn.addEventListener('click', function(){
+    btn.disabled = true;
+    incrementCount().finally(function(){
+      setTimeout(function(){ btn.disabled = false; }, 800);
+    });
+  });
+
+  window.addEventListener('load', fetchCount);
+  counterEl.textContent = formatNum(START_COUNT);
+</script>
+
+<!-- MVP投票 -->
+<!--
+  本番でリアルタイム集計をしたい場合は、応援カウンターと同様にCloudflare Worker + KVで
+  MVP_WORKER_URL のエンドポイントを用意し、プレイヤー名ごとの投票数をKVに保存してください。
+  Worker未設定の間は、このブラウザのlocalStorage内だけで完結する簡易集計になります
+  (他の人の投票とは合算されません)。
+-->
+<script type="text/javascript">
+  const MVP_WORKER_URL = ''; // 例: 'https://projectblue-mvp.your-subdomain.workers.dev'
+  const MVP_PLAYERS = ['久保建英','堂安律','伊東純也','冨安健洋','谷口彰悟','鎌田大地','上田綺世','前田大然','田中碧','佐野海舟'];
+  const MVP_VOTE_KEY = 'projectblue_mvp_voted';
+  const MVP_TALLY_KEY = 'projectblue_mvp_tally_local';
+
+  function getLocalTally(){
+    try {
+      const raw = localStorage.getItem(MVP_TALLY_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch(e) {}
+    const initial = {};
+    MVP_PLAYERS.forEach(function(p){ initial[p] = 0; });
+    return initial;
+  }
+
+  function saveLocalTally(tally){
+    try { localStorage.setItem(MVP_TALLY_KEY, JSON.stringify(tally)); } catch(e) {}
+  }
+
+  function renderMvpResults(tally){
+    const total = Object.values(tally).reduce(function(a,b){ return a+b; }, 0) || 1;
+    const resultsEl = document.getElementById('mvp-results');
+    const sorted = MVP_PLAYERS.slice().sort(function(a,b){ return (tally[b]||0) - (tally[a]||0); });
+    resultsEl.innerHTML = sorted.map(function(name){
+      const count = tally[name] || 0;
+      const pct = Math.round((count / total) * 100);
+      return '<div class="mvp-result-row">' +
+        '<div class="mvp-result-name">' + name + '</div>' +
+        '<div class="mvp-result-bar-track"><div class="mvp-result-bar-fill" style="width:' + pct + '%;"></div></div>' +
+        '<div class="mvp-result-pct">' + pct + '%</div>' +
+      '</div>';
+    }).join('');
+    resultsEl.style.display = 'block';
+    document.getElementById('mvp-list').style.display = 'none';
+    document.getElementById('mvp-voted-note').style.display = 'block';
+  }
+
+  async function castMvpVote(playerName){
+    if (MVP_WORKER_URL) {
+      try {
+        const res = await fetch(MVP_WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ player: playerName })
+        });
+        const data = await res.json();
+        if (data && data.tally) {
+          localStorage.setItem(MVP_VOTE_KEY, playerName);
+          renderMvpResults(data.tally);
+          return;
+        }
+      } catch(e) { /* フォールバックへ */ }
+    }
+    const tally = getLocalTally();
+    tally[playerName] = (tally[playerName] || 0) + 1;
+    saveLocalTally(tally);
+    localStorage.setItem(MVP_VOTE_KEY, playerName);
+    renderMvpResults(tally);
+  }
+
+  window.addEventListener('load', function(){
+    const alreadyVoted = localStorage.getItem(MVP_VOTE_KEY);
+    if (alreadyVoted) {
+      renderMvpResults(getLocalTally());
+      return;
+    }
+    document.querySelectorAll('.mvp-item').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.mvp-item').forEach(function(b){ b.disabled = true; });
+        castMvpVote(btn.getAttribute('data-player'));
+      });
+    });
+  });
+</script>
+
+<!-- 大会トリビアクイズ -->
+<script type="text/javascript">
+  const QUIZ_QUESTIONS = [
+    {
+      q: "2026年大会・開幕戦(メキシコ対南アフリカ)で大会第一号ゴールを決めたのは?",
+      options: ["フリアン・アルバレス(アルゼンチン)", "フリアン・キニョーネス(メキシコ)", "フリアン・アラウホ(ウルグアイ)"],
+      correct: 1,
+      explain: "開幕戦、9分に決めた先制点が大会の記念すべき第1号ゴールになった。"
+    },
+    {
+      q: "C・ロナウドが自身のワールドカップ初ゴールを決めた相手国は?",
+      options: ["イラン", "ガーナ", "モロッコ"],
+      correct: 0,
+      explain: "2006年大会、80分のPKで決めた。史上初の6大会連続ゴールへの、記念すべき第一歩だった。"
+    },
+    {
+      q: "今大会、出場選手の中で最も身長が低いのは?",
+      options: ["マルセロ・フローレス(カナダ)", "ジェレミー・アントニッセ(キュラソー)", "セサル・ヤニス(パナマ)"],
+      correct: 2,
+      explain: "身長160cm。2位のマルセロ・フローレス(164cm)らを抑え、今大会最小の選手となった。"
+    },
+    {
+      q: "ノルウェーのエース、ハーランドが5歳の時に樹立し、今も破られていない世界記録は?",
+      options: ["立ち幅跳び1m63cm", "50m走6秒2", "ハンドボールのシュート速度100km/h"],
+      correct: 0,
+      explain: "サッカーを始める前、まだ陸上大会に出ていた頃の記録。"
+    },
+    {
+      q: "スピードスター・伊東純也選手が高校進学先に逗葉高校を選んだ理由は?",
+      options: ["憧れの先輩がいたから", "家から近かったから", "スカウトが熱心だったから"],
+      correct: 1,
+      explain: "強豪私立という選択肢もあったが、寮生活や上下関係を避けたいのと家庭の方針で公立校を選んだ。当時は無名で、桐光学園に1-6で大敗した試合中の1得点がスカウトの目に留まり、大学進学の道が開けた。"
+    }
+  ];
+
+  let quizIndex = 0;
+  let quizScore = 0;
+
+  function renderQuiz(){
+    const q = QUIZ_QUESTIONS[quizIndex];
+    document.getElementById('quiz-progress-label').textContent = 'QUESTION ' + (quizIndex + 1) + ' / ' + QUIZ_QUESTIONS.length;
+    document.getElementById('quiz-question').textContent = q.q;
+    document.getElementById('quiz-progress-fill').style.width = Math.round(((quizIndex + 1) / QUIZ_QUESTIONS.length) * 100) + '%';
+    document.getElementById('quiz-progress-count').textContent = (quizIndex + 1) + '/' + QUIZ_QUESTIONS.length;
+    document.getElementById('quiz-explain').style.display = 'none';
+
+    const optionsEl = document.getElementById('quiz-options');
+    optionsEl.innerHTML = '';
+    q.options.forEach(function(opt, i){
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.textContent = opt;
+      btn.addEventListener('click', function(){ answerQuiz(i); });
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function answerQuiz(selectedIndex){
+    const q = QUIZ_QUESTIONS[quizIndex];
+    const buttons = document.querySelectorAll('.quiz-option');
+    buttons.forEach(function(btn, i){
+      btn.disabled = true;
+      if (i === q.correct) {
+        btn.classList.add('correct');
+        btn.innerHTML = '<span>' + btn.textContent + '</span><span>正解</span>';
+      } else if (i === selectedIndex) {
+        btn.classList.add('wrong');
+      }
+    });
+    if (selectedIndex === q.correct) quizScore++;
+    document.getElementById('quiz-explain-text').textContent = q.explain;
+    document.getElementById('quiz-explain').style.display = 'block';
+
+    setTimeout(function(){
+      quizIndex++;
+      if (quizIndex < QUIZ_QUESTIONS.length) {
+        renderQuiz();
+      } else {
+        document.querySelector('.quiz-progress-label').parentElement.querySelectorAll('.quiz-question, .quiz-options, .quiz-explain, .quiz-progress-bar').forEach(function(el){ el.style.display = 'none'; });
+        document.getElementById('quiz-progress-label').style.display = 'none';
+        const resultEl = document.getElementById('quiz-result');
+        resultEl.style.display = 'block';
+        document.getElementById('quiz-result-score').textContent = quizScore + '/' + QUIZ_QUESTIONS.length;
+      }
+    }, 2200);
+  }
+
+  window.addEventListener('load', renderQuiz);
+</script>
+
+</body>
+</html>
