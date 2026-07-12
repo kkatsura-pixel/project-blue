@@ -111,11 +111,46 @@
     border-radius: 50%;
     margin-right: 8px;
     animation: pulse 1.6s infinite;
+    box-shadow: 0 0 0 0 rgba(188,0,45,0.6);
   }
 
   @keyframes pulse{
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    0% { opacity: 1; box-shadow: 0 0 0 0 rgba(188,0,45,0.6); }
+    70% { opacity: 0.5; box-shadow: 0 0 0 6px rgba(188,0,45,0); }
+    100% { opacity: 1; box-shadow: 0 0 0 0 rgba(188,0,45,0); }
+  }
+
+  /* ===== スクロール出現演出(シャープワイプ) ===== */
+  .reveal{
+    opacity: 0;
+    position: relative;
+    transition: opacity 0.18s linear;
+  }
+  .reveal.is-visible{
+    opacity: 1;
+  }
+  .reveal::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .reveal.is-visible::before{
+    animation: revealWipe 0.6s cubic-bezier(.65,0,.35,1) forwards;
+  }
+  @keyframes revealWipe{
+    0%   { transform-origin: left;  transform: scaleX(0); }
+    50%  { transform-origin: left;  transform: scaleX(1); }
+    50.01%{ transform-origin: right; transform: scaleX(1); }
+    100% { transform-origin: right; transform: scaleX(0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal.is-visible{ opacity: 1; }
+    .reveal::before{ display: none; }
   }
 
   .hero .name{
@@ -631,9 +666,30 @@
   /* ===== SECTION 4: FUTURE / CTA ===== */
 
   #future{
+    position: relative;
+    overflow: hidden;
     text-align: center;
     background: radial-gradient(circle at 50% 120%, rgba(188,0,45,0.35), transparent 60%), var(--navy);
     padding-bottom: 120px;
+  }
+
+  #future::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(720px, 140vw);
+    height: min(720px, 140vw);
+    transform: translate(-50%, -50%);
+    background: url('https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/preview_v3.png') center / contain no-repeat;
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  #future > *{
+    position: relative;
+    z-index: 1;
   }
 
   #future .future-headline{
@@ -1214,7 +1270,11 @@
       const data = await res.json();
       if (typeof data.count === 'number') {
         localCount = data.count;
-        counterEl.textContent = formatNum(localCount);
+        if (typeof animateNumberIn === 'function') {
+          animateNumberIn(counterEl, localCount, { duration: 1200 });
+        } else {
+          counterEl.textContent = formatNum(localCount);
+        }
       }
     } catch(e) { /* フォールバックのまま表示 */ }
   }
@@ -1450,6 +1510,66 @@
   }
 
   window.addEventListener('load', renderQuiz);
+</script>
+
+<!-- ============ 動きの演出:スクロールワイプ + カウントアップ ============ -->
+<script type="text/javascript">
+  function animateNumberIn(el, target, opts){
+    opts = opts || {};
+    const duration = opts.duration || 900;
+    const prefix = opts.prefix || '';
+    const suffix = opts.suffix || '';
+    const useComma = opts.useComma !== undefined ? opts.useComma : (target >= 1000);
+    const start = performance.now();
+    function frame(now){
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const current = Math.round(target * eased);
+      const shown = useComma ? current.toLocaleString('ja-JP') : String(current);
+      el.textContent = prefix + shown + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function animateStatCardValue(el){
+    const text = el.textContent;
+    const match = text.match(/([0-9][0-9,]*)/);
+    if (!match) return;
+    const raw = match[1];
+    const target = parseInt(raw.replace(/,/g, ''), 10);
+    if (isNaN(target)) return;
+    const prefix = text.slice(0, match.index);
+    const suffix = text.slice(match.index + raw.length);
+    animateNumberIn(el, target, { prefix: prefix, suffix: suffix, useComma: raw.indexOf(',') !== -1 });
+  }
+
+  window.addEventListener('load', function(){
+    const revealTargets = document.querySelectorAll(
+      '.subhead, .stat-card, .fan-item, .video-frame, .quiz-card, .mvp-list, #trends-widget, .bracket-wrap'
+    );
+    revealTargets.forEach(function(el){ el.classList.add('reveal'); });
+
+    const statValuesAnimated = new WeakSet();
+
+    const io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add('is-visible');
+        if (el.classList.contains('stat-card')) {
+          const valueEl = el.querySelector('.value');
+          if (valueEl && !statValuesAnimated.has(valueEl)) {
+            statValuesAnimated.add(valueEl);
+            setTimeout(function(){ animateStatCardValue(valueEl); }, 200);
+          }
+        }
+        io.unobserve(el);
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+
+    revealTargets.forEach(function(el){ io.observe(el); });
+  });
 </script>
 
 </body>
