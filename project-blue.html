@@ -62,9 +62,33 @@
   /* ===== HEADER / HERO ===== */
 
   .hero{
+    position: relative;
+    overflow: hidden;
     padding: 72px 24px 56px;
     text-align: center;
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy) 85%, var(--navy-sub) 100%);
+    background: var(--navy);
+  }
+
+  .hero::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/IMG_2269.png') center 20% / cover no-repeat;
+    opacity: 0.22;
+    z-index: 0;
+  }
+
+  .hero::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--navy) 0%, rgba(15,27,61,0.72) 35%, var(--navy) 82%, var(--navy-sub) 100%);
+    z-index: 1;
+  }
+
+  .hero > *{
+    position: relative;
+    z-index: 2;
   }
 
   .hero .live-badge{
@@ -1118,10 +1142,13 @@
 
 <!-- News headlines (Google News RSS を rss2json 経由で取得) -->
 <script type="text/javascript">
-  async function loadNews(feedUrl, targetId, sourceLabel) {
+  const RSS2JSON_API_KEY = 'vrt3mvktdttarrapeoe8ovwkptwzrk8sosx3y9f6';
+
+  async function loadNews(feedUrl, targetId, sourceLabel, retriesLeft) {
+    if (retriesLeft === undefined) retriesLeft = 2;
     const el = document.getElementById(targetId);
     try {
-      const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl);
+      const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl) + '&api_key=' + RSS2JSON_API_KEY;
       const res = await fetch(apiUrl);
       const data = await res.json();
       if (!data.items || !data.items.length) throw new Error('no items');
@@ -1129,7 +1156,11 @@
         return '<li><span class="src">' + sourceLabel + '</span><a href="' + item.link + '" target="_blank" rel="noopener">' + item.title + '</a></li>';
       }).join('');
     } catch (e) {
-      el.innerHTML = '<li><a>ニュースを取得できませんでした(接続時にご確認ください)</a></li>';
+      if (retriesLeft > 0) {
+        setTimeout(function(){ loadNews(feedUrl, targetId, sourceLabel, retriesLeft - 1); }, 1200);
+      } else {
+        el.innerHTML = '<li><a>ニュースを取得できませんでした(接続時にご確認ください)</a></li>';
+      }
     }
   }
 
