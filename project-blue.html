@@ -74,7 +74,7 @@
     position: absolute;
     inset: 0;
     background: url('https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/IMG_2269.png') center 20% / cover no-repeat;
-    opacity: 0.22;
+    opacity: 0.55;
     z-index: 0;
   }
 
@@ -82,7 +82,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, var(--navy) 0%, rgba(15,27,61,0.72) 35%, var(--navy) 82%, var(--navy-sub) 100%);
+    background: linear-gradient(180deg, rgba(15,27,61,0.55) 0%, rgba(15,27,61,0.4) 35%, rgba(15,27,61,0.75) 82%, var(--navy-sub) 100%);
     z-index: 1;
   }
 
@@ -1166,7 +1166,7 @@
 
   window.addEventListener('load', function(){
     // 日本語版 Google News RSS
-    loadNews('https://news.google.com/rss/search?q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AB%E3%83%83%E3%83%97&hl=ja&gl=JP&ceid=JP:ja', 'news-jp', 'JP');
+    loadNews('http://www.jfa.jp/national_team/feed.rss', 'news-jp', 'JFA');
     // 英語版 Google News RSS
     loadNews('https://news.google.com/rss/search?q=World+Cup&hl=en-US&gl=US&ceid=US:en', 'news-en', 'EN');
   });
