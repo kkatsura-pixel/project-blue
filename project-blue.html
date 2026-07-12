@@ -502,7 +502,13 @@
     background: var(--white);
     border-radius: 6px;
     padding: 8px;
-    min-height: 300px;
+  }
+
+  #trends-widget img{
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
   }
 
   .news-list{
@@ -911,7 +917,7 @@
     </div>
 
     <div class="subhead">SEARCH TRENDS</div>
-    <div id="trends-widget"></div>
+    <div id="trends-widget"><img src="https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%81%AE%E3%83%86%E3%82%99%E3%82%B5%E3%82%99%E3%82%A4%E3%83%B3.png" alt="Google Trends 検索の推移(ワールドカップ関連キーワード比較)" loading="lazy"></div>
 
     <div class="subhead">TODAY'S HEADLINES</div>
     <ul class="news-list" id="news-jp">
@@ -1097,36 +1103,6 @@
 
 <!-- Instagram embed -->
 <script async src="//www.instagram.com/embed.js"></script>
-
-<!-- Google Trends embed (5キーワード比較) -->
-<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/3620_RC01/embed_loader.js"></script>
-<script type="text/javascript">
-  function renderTrendsWidget() {
-    if (typeof trends === 'undefined') { return; }
-    trends.embed.renderExploreWidgetTo(
-      document.getElementById('trends-widget'),
-      "TIMESERIES",
-      {
-        comparisonItem: [
-          { keyword: "ワールドカップ", geo: "JP", time: "today 3-m" },
-          { keyword: "W杯 2026", geo: "JP", time: "today 3-m" },
-          { keyword: "World Cup", geo: "", time: "today 3-m" },
-          { keyword: "サムライブルー", geo: "JP", time: "today 3-m" },
-          { keyword: "サッカー日本代表", geo: "JP", time: "today 3-m" }
-        ],
-        category: 0,
-        property: ""
-      },
-      {
-        exploreQuery: "date=today%203-m&q=%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AB%E3%83%83%E3%83%97",
-        guestPath: "https://trends.google.com:443/trends/embed/"
-      }
-    );
-  }
-  window.addEventListener('load', function(){
-    setTimeout(renderTrendsWidget, 500);
-  });
-</script>
 
 <!-- News headlines (Google News RSS を rss2json 経由で取得) -->
 <script type="text/javascript">
