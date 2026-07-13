@@ -581,6 +581,23 @@
   .news-list li{
     border-bottom: 1px solid rgba(255,255,255,0.12);
     padding: 14px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .news-list .thumb{
+    flex: 0 0 76px;
+    width: 76px;
+    height: 76px;
+    border-radius: 4px;
+    object-fit: cover;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .news-list .news-body{
+    flex: 1;
+    min-width: 0;
   }
 
   .news-list a{
@@ -602,6 +619,31 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 16px;
+  }
+
+  /* 横スクロールカルーセル(試験導入:SAMURAI BLUE Team Cam) */
+  .video-carousel{
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .video-carousel::-webkit-scrollbar{
+    height: 4px;
+  }
+  .video-carousel::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,0.2);
+    border-radius: 2px;
+  }
+
+  .video-carousel .video-frame{
+    flex: 0 0 220px;
+    scroll-snap-align: start;
+    padding-top: 0;
+    height: 124px;
   }
 
   .video-frame{
@@ -1022,7 +1064,7 @@
     </div>
 
     <div class="subhead">SAMURAI BLUE Team Cam</div>
-    <div class="video-grid">
+    <div class="video-carousel">
       <a class="video-frame" href="https://www.youtube.com/watch?v=tVg34Ueamcg" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/tVg34Ueamcg/hqdefault.jpg" loading="lazy" alt=""><span class="play-badge"><span></span></span><span class="yt-label">YouTubeで見る</span></a>
       <a class="video-frame" href="https://www.youtube.com/watch?v=tm5XYnXahBA" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/tm5XYnXahBA/hqdefault.jpg" loading="lazy" alt=""><span class="play-badge"><span></span></span><span class="yt-label">YouTubeで見る</span></a>
       <a class="video-frame" href="https://www.youtube.com/watch?v=yLAo8liFbAc" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/yLAo8liFbAc/hqdefault.jpg" loading="lazy" alt=""><span class="play-badge"><span></span></span><span class="yt-label">YouTubeで見る</span></a>
@@ -1212,8 +1254,10 @@
       const res = await fetch(apiUrl);
       const data = await res.json();
       if (!data.items || !data.items.length) throw new Error('no items');
-      el.innerHTML = data.items.slice(0, 5).map(function(item){
-        return '<li><span class="src">' + sourceLabel + '</span><a href="' + item.link + '" target="_blank" rel="noopener">' + item.title + '</a></li>';
+      const withImages = data.items.filter(function(item){ return !!item.thumbnail; });
+      if (!withImages.length) throw new Error('no items with image');
+      el.innerHTML = withImages.slice(0, 5).map(function(item){
+        return '<li><img class="thumb" src="' + item.thumbnail + '" loading="lazy" alt=""><div class="news-body"><span class="src">' + sourceLabel + '</span><a href="' + item.link + '" target="_blank" rel="noopener">' + item.title + '</a></div></li>';
       }).join('');
     } catch (e) {
       if (retriesLeft > 0) {
@@ -1228,7 +1272,7 @@
     // 日本語版 Google News RSS
     loadNews('http://www.jfa.jp/national_team/feed.rss', 'news-jp', 'JFA');
     // 英語版 Google News RSS
-    loadNews('https://news.google.com/rss/search?q=World+Cup&hl=en-US&gl=US&ceid=US:en', 'news-en', 'EN');
+    loadNews('https://feeds.bbci.co.uk/sport/football/rss.xml', 'news-en', 'BBC');
   });
 </script>
 
