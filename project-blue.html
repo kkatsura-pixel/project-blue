@@ -74,7 +74,7 @@
     position: absolute;
     inset: 0;
     background: url('https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/IMG_2269.png') center 20% / cover no-repeat;
-    opacity: 0.55;
+    opacity: 0.62;
     z-index: 0;
   }
 
@@ -82,7 +82,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(15,27,61,0.55) 0%, rgba(15,27,61,0.4) 35%, rgba(15,27,61,0.75) 82%, var(--navy-sub) 100%);
+    background: linear-gradient(180deg, rgba(15,27,61,0.47) 0%, rgba(15,27,61,0.32) 35%, rgba(15,27,61,0.67) 82%, var(--navy-sub) 100%);
     z-index: 1;
   }
 
@@ -256,18 +256,17 @@
   }
 
   .fan-item{
-    flex: 0 0 240px;
+    flex: 0 0 326px;
     min-width: 0;
     border-radius: 4px;
     overflow: hidden;
     background: var(--navy-sub);
     position: relative;
+    zoom: 0.8;
   }
 
   .fan-item-inner{
-    width: 300px;
-    transform: scale(0.8);
-    transform-origin: top left;
+    width: 100%;
   }
 
   .fan-item iframe, .fan-item blockquote{
@@ -1810,23 +1809,6 @@
     }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
 
     revealTargets.forEach(function(el){ io.observe(el); });
-  });
-</script>
-
-<!-- ============ Instagram埋め込みの高さをscale後のサイズに追従 ============ -->
-<script type="text/javascript">
-  window.addEventListener('load', function(){
-    document.querySelectorAll('.fan-item').forEach(function(item){
-      const inner = item.querySelector('.fan-item-inner');
-      if (!inner) return;
-      const ro = new ResizeObserver(function(entries){
-        for (const entry of entries) {
-          const h = entry.target.offsetHeight;
-          item.style.height = Math.round(h * 0.8) + 'px';
-        }
-      });
-      ro.observe(inner);
-    });
   });
 </script>
 
