@@ -213,6 +213,7 @@
     height: auto;
     border-radius: 10px;
     display: block;
+    opacity: 0.88;
   }
 
   /* ===== SECTION HEADINGS ===== */
@@ -262,12 +263,6 @@
     overflow: hidden;
     background: var(--navy-sub);
     position: relative;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-  }
-
-  .fan-item.is-ready{
-    opacity: 1;
   }
 
   .fan-item-inner{
@@ -1104,7 +1099,7 @@
   <p class="catch">もう一度、日本で。</p>
   <p class="tagline">世界中が熱狂する、世界最大のスポーツイベント。<br>その感動を、未来の日本へつなぐ。</p>
   <div class="bracket-wrap">
-    <img src="https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/bracket_transparent_v2.png" alt="FIFA WORLD CUP 2026 決勝トーナメント表" loading="lazy">
+    <img src="https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/bracket_final.png" alt="FIFA WORLD CUP 2026 決勝トーナメント表" loading="lazy">
   </div>
   <div class="scroll-hint">↓ SCROLL TO EXPLORE</div>
 </header>
@@ -1845,26 +1840,19 @@
   });
 </script>
 
-<!-- ============ Instagram埋め込みの高さ安定後に表示 ============ -->
+<!-- ============ Instagram埋め込みの高さをscale後のサイズに追従 ============ -->
 <script type="text/javascript">
   window.addEventListener('load', function(){
     document.querySelectorAll('.fan-item').forEach(function(item){
       const inner = item.querySelector('.fan-item-inner');
       if (!inner) return;
-      let settleTimer = null;
       const ro = new ResizeObserver(function(entries){
         for (const entry of entries) {
           const h = entry.target.offsetHeight;
-          item.style.height = Math.round(h * 0.8) + 'px';
+          item.style.height = Math.round(h * 0.768) + 'px';
         }
-        clearTimeout(settleTimer);
-        settleTimer = setTimeout(function(){
-          item.classList.add('is-ready');
-        }, 450);
       });
       ro.observe(inner);
-      // 万が一Instagramの読み込み自体に失敗した場合の保険(3秒で強制表示)
-      setTimeout(function(){ item.classList.add('is-ready'); }, 3000);
     });
   });
 </script>
