@@ -74,7 +74,7 @@
     position: absolute;
     inset: 0;
     background: url('https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/IMG_2269.png') center 20% / cover no-repeat;
-    opacity: 0.62;
+    opacity: 0.66;
     z-index: 0;
   }
 
@@ -265,8 +265,8 @@
   }
 
   .fan-item-inner{
-    width: 313px;
-    transform: scale(0.8);
+    width: 326px;
+    transform: scale(0.768);
     transform-origin: top left;
   }
 
@@ -776,6 +776,7 @@
   }
 
   .legacy-art{
+    display: block;
     position: relative;
     max-width: 460px;
     margin: 32px auto 40px;
@@ -791,8 +792,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 8%;
     text-align: center;
     color: #FFFFFF;
     font-family: 'Anton', sans-serif;
@@ -816,6 +816,34 @@
     font-size: clamp(20px, 5vw, 28px);
     letter-spacing: 0.12em;
     margin-top: 4px;
+  }
+  .legacy-art .legacy-art-desc{
+    display: block;
+    margin-top: 22px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.5;
+    font-size: clamp(12px, 2.6vw, 14px);
+    color: rgba(255,255,255,0.85);
+    padding: 0 8%;
+  }
+  .legacy-art .legacy-art-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 6px 16px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 999px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+  }
+  .legacy-art .legacy-art-link .arrow{
+    font-size: 9px;
   }
   #legacy .subhead{ color: rgba(255,255,255,0.6); }
 
@@ -1069,7 +1097,7 @@
   <p class="catch">もう一度、日本で。</p>
   <p class="tagline">世界中が熱狂する、世界最大のスポーツイベント。<br>その感動を、未来の日本へつなぐ。</p>
   <div class="bracket-wrap">
-    <img src="https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/IMG_2227.png" alt="FIFA WORLD CUP 2026 決勝トーナメント表" loading="lazy">
+    <img src="https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/bracket_transparent.png" alt="FIFA WORLD CUP 2026 決勝トーナメント表" loading="lazy">
   </div>
   <div class="scroll-hint">↓ SCROLL TO EXPLORE</div>
 </header>
@@ -1312,14 +1340,16 @@
     <h2 class="display">あの日、日本は世界を迎えた。</h2>
   </div>
 
-  <div class="legacy-art">
+  <a class="legacy-art" href="https://www.fifa.com/en/articles/relive-korea-japan-2002-with-match-replays-exclusive-videos-interviews-and-features" target="_blank" rel="noopener">
     <img src="https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/legacy_art2.png" alt="2002 FIFA World Cup Korea Japan" loading="lazy">
     <div class="legacy-art-text">
       <span class="line0">2002</span>
       <span class="line1">FIFA World CUP</span>
       <span class="line2">KOREA JAPAN</span>
+      <span class="legacy-art-desc">Relive Korea/Japan 2002 with full match replays, exclusive videos &amp; interviews</span>
+      <span class="legacy-art-link"><span class="arrow">▶</span> FIFA.comで見る</span>
     </div>
-  </div>
+  </a>
 
   <div class="subhead">2002 LEGACY</div>
   <div class="video-carousel card-slider slide-in-right">
