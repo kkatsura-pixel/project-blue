@@ -256,7 +256,7 @@
   }
 
   .fan-item{
-    flex: 0 0 260.8px;
+    flex: 0 0 250.4px;
     min-width: 0;
     border-radius: 4px;
     overflow: hidden;
@@ -265,7 +265,7 @@
   }
 
   .fan-item-inner{
-    width: 326px;
+    width: 313px;
     transform: scale(0.8);
     transform-origin: top left;
   }
@@ -274,6 +274,7 @@
     width: 100% !important;
     min-width: 0 !important;
     margin: 0 !important;
+    box-shadow: none !important;
   }
 
   /* カード型スライダー(1枚ずつ、次のカードを少し見切れさせる) */
@@ -577,6 +578,13 @@
     margin-bottom: 8px;
   }
 
+  .stat-card .value-row{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
   .stat-card .value{
     font-family: 'Roboto Mono', monospace;
     font-size: 28px;
@@ -588,7 +596,7 @@
 
   .stat-card .source{
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 0;
     font-size: 11px;
     font-weight: 400;
     color: rgba(255,255,255,0.55);
@@ -1071,7 +1079,6 @@
   <div class="section-head">
     <span class="eyebrow">01 / WORLD FAN CULTURE</span>
     <h2 class="display">世界中が、この瞬間を生きている。</h2>
-    <p>歓声は、ピッチだけではない。世界中の街が、ワールドカップに染まっている。</p>
   </div>
 
   <div class="fan-grid slide-in-right">
@@ -1164,49 +1171,40 @@
     <div class="section-head">
       <span class="eyebrow">02 / THE WORLD IS WATCHING</span>
       <h2 class="display">この大会は、世界中が見つめている。</h2>
-      <p>検索される回数。見られる回数。語られる回数。<br>世界の視線が、今、この大会へ集まっている。</p>
     </div>
 
     <div class="stats-grid">
       <div class="stat-card">
         <div class="label">FIFA大会収益</div>
-        <div class="value">約89億ドル</div>
-        <a class="source" href="https://www.sportspro.com/analysis/sponsorship-marketing/fifa-world-cup-2026-business-revenue-ticketing-broadcast-sponsorship/" target="_blank" rel="noopener">SportsPro</a>
+        <div class="value-row"><div class="value">約89億ドル</div><a class="source" href="https://www.sportspro.com/analysis/sponsorship-marketing/fifa-world-cup-2026-business-revenue-ticketing-broadcast-sponsorship/" target="_blank" rel="noopener">SportsPro</a></div>
       </div>
       <div class="stat-card">
         <div class="label">世界経済効果(FIFA/WTO共同調査)</div>
-        <div class="value">約801億ドル</div>
-        <a class="source" href="https://www.sportspro.com/analysis/sponsorship-marketing/fifa-world-cup-2026-business-revenue-ticketing-broadcast-sponsorship/" target="_blank" rel="noopener">SportsPro</a>
+        <div class="value-row"><div class="value">約801億ドル</div><a class="source" href="https://www.sportspro.com/analysis/sponsorship-marketing/fifa-world-cup-2026-business-revenue-ticketing-broadcast-sponsorship/" target="_blank" rel="noopener">SportsPro</a></div>
       </div>
       <div class="stat-card">
         <div class="label">チケット販売</div>
-        <div class="value">600万枚超</div>
-        <a class="source" href="https://www.pbs.org/newshour/world/fact-checking-claims-about-unprecedented-demand-for-world-cup-tickets" target="_blank" rel="noopener">PBS NewsHour</a>
+        <div class="value-row"><div class="value">600万枚超</div><a class="source" href="https://www.pbs.org/newshour/world/fact-checking-claims-about-unprecedented-demand-for-world-cup-tickets" target="_blank" rel="noopener">PBS NewsHour</a></div>
       </div>
       <div class="stat-card">
         <div class="label">放映権収入</div>
-        <div class="value">約39億ドル</div>
-        <a class="source" href="https://www.forbes.com/sites/brettknight/2026/07/01/the-numbers-behind-the-2026-world-cup/" target="_blank" rel="noopener">Forbes</a>
+        <div class="value-row"><div class="value">約39億ドル</div><a class="source" href="https://www.forbes.com/sites/brettknight/2026/07/01/the-numbers-behind-the-2026-world-cup/" target="_blank" rel="noopener">Forbes</a></div>
       </div>
       <div class="stat-card">
         <div class="label">スポンサー収益</div>
-        <div class="value">約28億ドル超</div>
-        <a class="source" href="https://www.docsports.com/2026/fifa-world-cup-financial-statistics.html" target="_blank" rel="noopener">docsports</a>
+        <div class="value-row"><div class="value">約28億ドル超</div><a class="source" href="https://www.docsports.com/2026/fifa-world-cup-financial-statistics.html" target="_blank" rel="noopener">docsports</a></div>
       </div>
       <div class="stat-card">
         <div class="label">世界視聴者数(FIFA大会前公表の見込み値)</div>
-        <div class="value">約60億人</div>
-        <a class="source" href="https://theworlddata.com/fifa-world-cup-viewership-statistics/" target="_blank" rel="noopener">FIFA発表</a>
+        <div class="value-row"><div class="value">約60億人</div><a class="source" href="https://theworlddata.com/fifa-world-cup-viewership-statistics/" target="_blank" rel="noopener">FIFA発表</a></div>
       </div>
       <div class="stat-card">
         <div class="label">FIFA YouTube登録者数</div>
-        <div class="value">約3,277万人</div>
-        <a class="source" href="https://socialcounts.org/youtube-channel-analytics/UCpcTrCXblq78GZrTUTLWeBw" target="_blank" rel="noopener">SocialCounts.org</a>
+        <div class="value-row"><div class="value">約3,277万人</div><a class="source" href="https://socialcounts.org/youtube-channel-analytics/UCpcTrCXblq78GZrTUTLWeBw" target="_blank" rel="noopener">SocialCounts.org</a></div>
       </div>
       <div class="stat-card">
         <div class="label">FIFA動画総再生数(TikTok・YouTube合算)</div>
-        <div class="value">200億回</div>
-        <a class="source" href="https://inside.fifa.com/organisation/media-releases/packed-stadiums-record-digital-reach-world-cup-2026-numbers-unprecedented-scale" target="_blank" rel="noopener">FIFA公式発表</a>
+        <div class="value-row"><div class="value">200億回</div><a class="source" href="https://inside.fifa.com/organisation/media-releases/packed-stadiums-record-digital-reach-world-cup-2026-numbers-unprecedented-scale" target="_blank" rel="noopener">FIFA公式発表</a></div>
       </div>
     </div>
 
@@ -1252,7 +1250,6 @@
   <div class="section-head">
     <span class="eyebrow">03 / QUIZ &amp; VOTE</span>
     <h2 class="display">数字だけじゃない、大会の楽しみ方。</h2>
-    <p>大会にまつわるクイズと、みんなで選ぶMVP投票。</p>
   </div>
 
   <div class="subhead">大会トリビアクイズ(全10問)</div>
@@ -1272,7 +1269,6 @@
   </div>
 
   <div class="subhead">あなたが選ぶ今大会の日本代表MVPは?</div>
-  <p class="mvp-note">招集メンバー全員が対象です。1人を選んで投票してください。</p>
 
   <div class="mvp-list" id="mvp-list">
     <button class="mvp-item" data-player="早川友基">早川 友基</button>
@@ -1314,7 +1310,6 @@
   <div class="section-head">
     <span class="eyebrow">04 / LEGACY, 2002</span>
     <h2 class="display">あの日、日本は世界を迎えた。</h2>
-    <p>あの歓声は、今も多くの人の心に残っている。</p>
   </div>
 
   <div class="legacy-art">
@@ -1358,7 +1353,7 @@
   <p class="future-sub">この感動を、未来の子どもたちへ。</p>
   <p class="future-headline display final-line">─ もう一度、日本で。</p>
 
-  <p class="pre-cta">世界を迎えるその日へ。<br>あなたの一つの想いが、日本開催への機運を育てます。</p>
+  <p class="pre-cta">あなたの一つの想いが、日本開催への機運を育てます。</p>
 
   <button class="cta-button" id="cta-btn">この想いに参加する</button>
 
