@@ -213,7 +213,7 @@
     height: auto;
     border-radius: 10px;
     display: block;
-    opacity: 0.88;
+    opacity: 0.94;
   }
 
   /* ===== SECTION HEADINGS ===== */
@@ -257,7 +257,7 @@
   }
 
   .fan-item{
-    flex: 0 0 250.4px;
+    flex: 0 0 326px;
     min-width: 0;
     border-radius: 4px;
     overflow: hidden;
@@ -266,9 +266,7 @@
   }
 
   .fan-item-inner{
-    width: 326px;
-    transform: scale(0.768);
-    transform-origin: top left;
+    width: 100%;
   }
 
   .fan-item iframe, .fan-item blockquote{
@@ -1837,23 +1835,6 @@
     }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
 
     revealTargets.forEach(function(el){ io.observe(el); });
-  });
-</script>
-
-<!-- ============ Instagram埋め込みの高さをscale後のサイズに追従 ============ -->
-<script type="text/javascript">
-  window.addEventListener('load', function(){
-    document.querySelectorAll('.fan-item').forEach(function(item){
-      const inner = item.querySelector('.fan-item-inner');
-      if (!inner) return;
-      const ro = new ResizeObserver(function(entries){
-        for (const entry of entries) {
-          const h = entry.target.offsetHeight;
-          item.style.height = Math.round(h * 0.768) + 'px';
-        }
-      });
-      ro.observe(inner);
-    });
   });
 </script>
 
