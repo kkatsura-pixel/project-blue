@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram 4-up grid test</title>
+<style>
+  body { margin:0; background:#0F1B3D; font-family: sans-serif; padding: 16px; box-sizing: border-box; }
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 340px;
+    max-width: 100%;
+  }
+  .cell {
+    width: 100%;
+    overflow: hidden;
+  }
+  .cell .instagram-media {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  p.label { color:#fff; font-size:13px; margin: 0 0 12px; }
+</style>
+</head>
+<body>
+<p class="label">2×2で4投稿を1画面に収めるテスト(公式埋め込みコードをそのまま使用、幅は強制的に縮小)</p>
+<div id="grid">
+  <div class="cell">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CSOVO8xNh-E/" data-instgrm-version="14" style="margin:0; padding:0;"></blockquote>
+  </div>
+  <div class="cell">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CaUsPbUquKV/" data-instgrm-version="14" style="margin:0; padding:0;"></blockquote>
+  </div>
+  <div class="cell">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CSOVO8xNh-E/" data-instgrm-version="14" style="margin:0; padding:0;"></blockquote>
+  </div>
+  <div class="cell">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CaUsPbUquKV/" data-instgrm-version="14" style="margin:0; padding:0;"></blockquote>
+  </div>
+</div>
+<script async src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
