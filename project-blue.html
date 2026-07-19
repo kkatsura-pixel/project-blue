@@ -1121,7 +1121,7 @@
   <style>
     #culture-map{ padding: 96px 0 0; max-width: none; background: var(--navy-sub); }
     #culture-map .section-head{ max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    #cm-wrap{ position:relative; width:100%; height:560px; background:var(--navy-sub); }
+    #cm-wrap{ position:relative; width:100%; aspect-ratio: 2.4 / 1; background:var(--navy-sub); }
     #cm-map{ width:100%; height:100%; display:block; }
     .cm-country{ fill:var(--navy); stroke:var(--navy-sub); stroke-width:0.5; }
     .cm-target{ fill:#3a4d8f; cursor:pointer; stroke:var(--navy-sub); stroke-width:0.5; transition: fill 0.15s; }
@@ -1149,9 +1149,11 @@
     .cm-fact .cm-k{ color:#8fa0d6; font-size:10px; margin-bottom:2px; }
     .cm-fact .cm-v{ color:#fff; font-size:13px; font-weight:600; }
     .cm-ig-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:4px; }
-    .cm-ig-cell{ aspect-ratio: 3/4; background:#3a4d8f; border-radius:5px; display:flex; align-items:center; justify-content:center; color:#8fa0d6; font-size:10px; text-decoration:none; }
+    .cm-ig-cell{ aspect-ratio: 3/4; background:#3a4d8f; border-radius:5px; display:block; overflow:hidden; text-decoration:none; position:relative; }
+    .cm-ig-thumb{ width:100%; height:100%; object-fit:cover; display:block; }
     .cm-yt-card{ position:relative; border-radius:10px; overflow:hidden; background:var(--navy-sub); aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; cursor:pointer; text-decoration:none; }
-    .cm-yt-card .cm-play{ width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.9); display:flex; align-items:center; justify-content:center; }
+    .cm-yt-thumb{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .cm-yt-card .cm-play{ position:relative; z-index:1; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.9); display:flex; align-items:center; justify-content:center; }
     .cm-yt-card .cm-play::after{ content:''; border-left:14px solid var(--navy); border-top:8px solid transparent; border-bottom:8px solid transparent; margin-left:3px; }
     .cm-yt-label{ color:#8fa0d6; font-size:11px; margin-top:6px; }
     .cm-wikivoyage-btn{ display:block; text-align:center; margin-top:22px; padding:12px; background:var(--navy-sub); border-radius:10px; color:#fff; font-size:13px; font-weight:600; text-decoration:none; }
@@ -1198,7 +1200,7 @@
     <div class="cm-ig-grid" id="cm-p-ig"></div>
 
     <div class="cm-label">🎥 YouTube</div>
-    <a class="cm-yt-card" id="cm-p-yt" href="" target="_blank" rel="noopener"><div class="cm-play"></div></a>
+    <a class="cm-yt-card" id="cm-p-yt" href="" target="_blank" rel="noopener"><img class="cm-yt-thumb" id="cm-p-yt-thumb" src="" alt=""><div class="cm-play"></div></a>
     <div class="cm-yt-label">タップしてYouTubeで見る</div>
 
     <a class="cm-wikivoyage-btn" id="cm-p-wikivoyage" href="" target="_blank" rel="noopener">✈️ Wikivoyageでもっと知る</a>
@@ -2067,17 +2069,31 @@
     document.getElementById("cm-p-dish").textContent = d.dish;
     document.getElementById("cm-p-wikivoyage").href = d.wikivoyage;
     document.getElementById("cm-p-yt").href = d.youtube;
+    const ytId = (d.youtube.match(/[?&]v=([^&]+)/) || [])[1];
+    if (ytId) document.getElementById("cm-p-yt-thumb").src = "https://img.youtube.com/vi/" + ytId + "/hqdefault.jpg";
 
     const ig = document.getElementById("cm-p-ig");
     ig.innerHTML = "";
-    d.ig.forEach((url, i) => {
+    d.ig.forEach((url) => {
       const a = document.createElement("a");
       a.className = "cm-ig-cell";
       a.href = url;
       a.target = "_blank";
       a.rel = "noopener";
-      a.textContent = i + 1;
       ig.appendChild(a);
+      fetch("https://api.microlink.io?url=" + encodeURIComponent(url))
+        .then(r => r.json())
+        .then(res => {
+          const imgUrl = res && res.data && res.data.image && res.data.image.url;
+          if (imgUrl) {
+            const img = document.createElement("img");
+            img.src = imgUrl;
+            img.className = "cm-ig-thumb";
+            img.loading = "lazy";
+            a.appendChild(img);
+          }
+        })
+        .catch(() => {});
     });
 
     sheet.classList.add("cm-open");
