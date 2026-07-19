@@ -1119,7 +1119,7 @@
 <!-- ============ 01 THE COMMUNITY-DRIVEN (World Cup Culture Map) ============ -->
 <section id="culture-map">
   <style>
-    #culture-map{ padding: 96px 0 48px; max-width: none; background: var(--navy-sub); }
+    #culture-map{ padding: 96px 0 86px; max-width: none; background: var(--navy-sub); }
     #culture-map .section-head{ max-width: 1080px; margin: 0 auto; padding: 0 24px; }
     #cm-wrap{ position:relative; width:100%; aspect-ratio: 2.4 / 1; background:var(--navy-sub); }
     #cm-map{ width:100%; height:100%; display:block; }
@@ -2086,7 +2086,8 @@
     const ig = document.getElementById("cm-p-ig");
     ig.innerHTML = "";
     function loadThumb(a, url, isRetry) {
-      fetch("https://api.microlink.io?url=" + encodeURIComponent(url))
+      const apiUrl = "https://api.microlink.io?url=" + encodeURIComponent(url) + (isRetry ? "&force=true" : "");
+      fetch(apiUrl)
         .then(r => r.json())
         .then(res => {
           const imgUrl = res && res.data && res.data.image && res.data.image.url;
