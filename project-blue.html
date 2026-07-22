@@ -1126,7 +1126,7 @@
     .cm-country{ fill:var(--navy); stroke:var(--navy-sub); stroke-width:0.5; }
     .cm-target{ fill:#3a4d8f; cursor:pointer; stroke:var(--navy-sub); stroke-width:0.5; transition: fill 0.15s; animation: cm-pulse 2.8s ease-in-out infinite; }
     .cm-target:active, .cm-target.cm-tapped{ fill:var(--red) !important; animation:none; }
-    @keyframes cm-pulse{ 0%,100%{ fill-opacity:1; } 50%{ fill-opacity:0.6; } }
+    @keyframes cm-pulse{ 0%,100%{ fill:#5a72ab; fill-opacity:1; } 50%{ fill:#3a4d8f; fill-opacity:0.6; } }
     @keyframes cm-breathe{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.015); } }
     #cm-map{ animation: cm-breathe 6s ease-in-out infinite; transform-origin: center center; }
 
@@ -1151,15 +1151,8 @@
     .cm-fact{ background:var(--navy-sub); border-radius:8px; padding:8px 10px; }
     .cm-fact .cm-k{ color:#8fa0d6; font-size:10px; margin-bottom:2px; }
     .cm-fact .cm-v{ color:#fff; font-size:13px; font-weight:600; }
-    .cm-data-block{ background:var(--navy-sub); border-radius:8px; padding:12px 14px; display:flex; flex-direction:column; gap:12px; }
-    .cm-data-row{ display:flex; align-items:center; gap:8px; }
-    .cm-data-label{ color:#8fa0d6; font-size:11px; flex-shrink:0; white-space:nowrap; }
-    .cm-data-val{ color:#fff; font-size:12px; white-space:nowrap; }
-    .cm-data-track{ flex:1; background:rgba(255,255,255,0.12); border-radius:4px; height:8px; overflow:hidden; }
-    .cm-data-fill{ height:8px; border-radius:4px; }
-    .cm-data-gauge .cm-data-gtop{ display:flex; justify-content:space-between; font-size:11px; color:#8fa0d6; margin-bottom:4px; }
-    .cm-data-gauge .cm-data-gtop span:last-child{ color:#fff; }
     .cm-data-pill{ font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; white-space:nowrap; }
+    .cm-heritage-row{ display:flex; gap:8px; background:var(--navy-sub); border-radius:8px; padding:10px 14px; margin-top:10px; }
     .cm-heritage-cell{ flex:1; text-align:center; display:flex; flex-direction:column; align-items:center; gap:2px; }
     .cm-ig-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:4px; }
     .cm-ig-cell{ aspect-ratio: 3/4; background:#3a4d8f; border-radius:5px; display:block; overflow:hidden; text-decoration:none; position:relative; }
@@ -1202,53 +1195,21 @@
 
     <div class="cm-label" style="display:flex; align-items:center; justify-content:space-between;">基礎情報 <span id="cm-p-emoji" style="font-size:16px; letter-spacing:2px;"></span></div>
     <div class="cm-facts">
-      <div class="cm-fact"><div class="cm-k">首都</div><div class="cm-v" id="cm-p-capital"></div></div>
-      <div class="cm-fact"><div class="cm-k">W杯最高成績</div><div class="cm-v" id="cm-p-best"></div></div>
-      <div class="cm-fact"><div class="cm-k">通貨</div><div class="cm-v" id="cm-p-currency"></div></div>
-      <div class="cm-fact"><div class="cm-k">名物料理</div><div class="cm-v" id="cm-p-dish"></div></div>
-      <div class="cm-fact"><div class="cm-k">トップ大学</div><div class="cm-v" id="cm-p-univ"></div></div>
-      <div class="cm-fact"><div class="cm-k">トップ企業</div><div class="cm-v" id="cm-p-company"></div></div>
+      <div class="cm-fact"><div class="cm-k">🏙️ 首都</div><div class="cm-v" id="cm-p-capital"></div></div>
+      <div class="cm-fact"><div class="cm-k">👥 人口</div><div class="cm-v" id="cm-p-population"></div></div>
+      <div class="cm-fact"><div class="cm-k">💱 通貨</div><div class="cm-v" id="cm-p-currency"></div></div>
+      <div class="cm-fact"><div class="cm-k">🍽️ 名物料理</div><div class="cm-v" id="cm-p-dish"></div></div>
+      <div class="cm-fact"><div class="cm-k">⚽ FIFAランキング</div><div class="cm-v" id="cm-p-fifa-txt"></div></div>
+      <div class="cm-fact"><div class="cm-k">🏆 W杯最高成績</div><div class="cm-v" id="cm-p-best"></div></div>
+      <div class="cm-fact"><div class="cm-k">💰 GDP</div><div class="cm-v" id="cm-p-gdp"></div></div>
+      <div class="cm-fact"><div class="cm-k">👛 一人当たりGDP</div><div class="cm-v" id="cm-p-gdppc"></div></div>
+      <div class="cm-fact"><div class="cm-k">🎓 トップ大学</div><div class="cm-v" id="cm-p-univ"></div></div>
+      <div class="cm-fact"><div class="cm-k">🏢 トップ企業</div><div class="cm-v" id="cm-p-company"></div></div>
     </div>
-
-    <div class="cm-label">データで見る</div>
-    <div class="cm-data-block">
-      <div class="cm-data-row">
-        <span class="cm-data-label">👥 人口</span>
-        <div class="cm-data-track" style="flex:1; position:relative;">
-          <div id="cm-p-pop-bar" style="height:8px; border-radius:4px; background:#5DCAA5; position:relative;">
-            <div id="cm-p-elderly-bar" style="position:absolute; right:0; top:0; height:8px; background:#F0997B; border-radius:0 4px 4px 0;"></div>
-          </div>
-        </div>
-        <span class="cm-data-pill" style="background:rgba(93,202,165,0.18);"><span id="cm-p-population" style="color:#5DCAA5;"></span><span id="cm-p-elderly-txt" style="color:#F0997B;"></span></span>
-      </div>
-      <div class="cm-data-row">
-        <span class="cm-data-label">⚽ FIFA</span>
-        <div class="cm-data-track" style="flex:1;"><div class="cm-data-fill" id="cm-p-fifa-bar" style="background:#5DCAA5;"></div></div>
-        <span class="cm-data-pill" id="cm-p-fifa-txt" style="background:rgba(93,202,165,0.18); color:#5DCAA5;"></span>
-      </div>
-      <div class="cm-data-row">
-        <span class="cm-data-label">💰 GDP</span>
-        <div class="cm-data-track" style="flex:1;"><div class="cm-data-fill" id="cm-p-gdp-bar" style="background:#5B9BE0;"></div></div>
-        <span class="cm-data-pill" id="cm-p-gdp" style="background:rgba(91,155,224,0.18); color:#5B9BE0;"></span>
-      </div>
-      <div class="cm-data-row">
-        <span class="cm-data-label">👛 一人当たり</span>
-        <div class="cm-data-track" style="flex:1;"><div class="cm-data-fill" id="cm-p-gdppc-bar" style="background:#5B9BE0;"></div></div>
-        <span class="cm-data-pill" id="cm-p-gdppc" style="background:rgba(91,155,224,0.18); color:#5B9BE0;"></span>
-      </div>
-      <div class="cm-data-row">
-        <span class="cm-data-label">🌟 HDI(人間開発指数)</span>
-        <div class="cm-data-track" style="flex:1;"><div class="cm-data-fill" id="cm-p-hdi-bar" style="background:#A89BEB;"></div></div>
-        <span class="cm-data-pill" id="cm-p-hdi-txt" style="background:rgba(168,155,235,0.18); color:#A89BEB;"></span>
-      </div>
-      <div class="cm-data-row" style="align-items:flex-start;">
-        <span class="cm-data-label" style="padding-top:2px;">🏛️ 世界遺産</span>
-        <div style="display:flex; gap:8px; flex:1;">
-          <div class="cm-heritage-cell"><i style="font-size:15px;">🏯</i><div class="cm-data-pill" id="cm-p-heritage-cultural" style="background:rgba(240,153,123,0.18); color:#F0997B;"></div><div style="font-size:9px; color:#8fa0d6;">文化</div></div>
-          <div class="cm-heritage-cell"><i style="font-size:15px;">🏔️</i><div class="cm-data-pill" id="cm-p-heritage-natural" style="background:rgba(93,202,165,0.18); color:#5DCAA5;"></div><div style="font-size:9px; color:#8fa0d6;">自然</div></div>
-          <div class="cm-heritage-cell"><i style="font-size:15px;">🌗</i><div class="cm-data-pill" id="cm-p-heritage-mixed" style="background:rgba(168,155,235,0.18); color:#A89BEB;"></div><div style="font-size:9px; color:#8fa0d6;">複合</div></div>
-        </div>
-      </div>
+    <div class="cm-heritage-row">
+      <div class="cm-heritage-cell"><i style="font-size:15px;">🏯</i><div class="cm-data-pill" id="cm-p-heritage-cultural" style="background:rgba(240,153,123,0.18); color:#F0997B;"></div><div style="font-size:9px; color:#8fa0d6;">文化</div></div>
+      <div class="cm-heritage-cell"><i style="font-size:15px;">🏔️</i><div class="cm-data-pill" id="cm-p-heritage-natural" style="background:rgba(93,202,165,0.18); color:#5DCAA5;"></div><div style="font-size:9px; color:#8fa0d6;">自然</div></div>
+      <div class="cm-heritage-cell"><i style="font-size:15px;">🌗</i><div class="cm-data-pill" id="cm-p-heritage-mixed" style="background:rgba(168,155,235,0.18); color:#A89BEB;"></div><div style="font-size:9px; color:#8fa0d6;">複合</div></div>
     </div>
 
     <div class="cm-label">📱 Instagram</div>
@@ -2138,24 +2099,14 @@
     }
     document.getElementById("cm-p-capital").textContent = d.capital;
     document.getElementById("cm-p-emoji").textContent = d.emoji;
-    document.getElementById("cm-p-population").textContent = d.population;
+    document.getElementById("cm-p-population").textContent = d.population + "(65歳+" + d.elderly_pct + "%)";
     document.getElementById("cm-p-best").textContent = d.best_result;
     document.getElementById("cm-p-currency").textContent = d.currency;
     document.getElementById("cm-p-univ").textContent = d.top_univ;
     document.getElementById("cm-p-dish").textContent = d.dish;
-    const MAX_GDP = 30.3e12, MAX_GDPPC = 100000, MAX_FIFA = 211;
-    const MAX_POP = 3.47e8;
-    document.getElementById("cm-p-pop-bar").style.width = Math.round(d.pop_num / MAX_POP * 100) + "%";
-    document.getElementById("cm-p-elderly-bar").style.width = d.elderly_pct + "%";
-    document.getElementById("cm-p-elderly-txt").textContent = "(65歳+" + d.elderly_pct + "%)";
-    document.getElementById("cm-p-fifa-txt").textContent = d.fifa_num + "位 / " + MAX_FIFA;
-    document.getElementById("cm-p-fifa-bar").style.width = Math.round((1 - (d.fifa_num - 1) / MAX_FIFA) * 100) + "%";
-    document.getElementById("cm-p-gdp-bar").style.width = Math.round(d.gdp_num / MAX_GDP * 100) + "%";
+    document.getElementById("cm-p-fifa-txt").textContent = d.fifa_num + "位/211";
     document.getElementById("cm-p-gdp").textContent = d.gdp;
-    document.getElementById("cm-p-gdppc-bar").style.width = Math.round(d.gdppc_num / MAX_GDPPC * 100) + "%";
     document.getElementById("cm-p-gdppc").textContent = d.gdp_per_capita;
-    document.getElementById("cm-p-hdi-txt").textContent = d.hdi_num.toFixed(3);
-    document.getElementById("cm-p-hdi-bar").style.width = Math.round(d.hdi_num * 100) + "%";
     document.getElementById("cm-p-heritage-cultural").textContent = d.heritage_cultural;
     document.getElementById("cm-p-heritage-natural").textContent = d.heritage_natural;
     document.getElementById("cm-p-heritage-mixed").textContent = d.heritage_mixed;
