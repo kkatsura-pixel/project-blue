@@ -1152,7 +1152,9 @@
     .cm-fact .cm-k{ color:#8fa0d6; font-size:10px; margin-bottom:2px; }
     .cm-fact .cm-v{ color:#fff; font-size:13px; font-weight:600; }
     .cm-data-pill{ font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; white-space:nowrap; }
-    .cm-heritage-row{ display:flex; gap:8px; background:var(--navy-sub); border-radius:8px; padding:10px 14px; margin-top:10px; }
+    .cm-heritage-row{ display:flex; flex-direction:column; gap:8px; background:var(--navy-sub); border-radius:8px; padding:10px 14px; margin-top:10px; }
+    .cm-heritage-title{ color:#8fa0d6; font-size:10px; }
+    .cm-heritage-cells{ display:flex; gap:8px; }
     .cm-heritage-cell{ flex:1; text-align:center; display:flex; flex-direction:column; align-items:center; gap:2px; }
     .cm-ig-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:4px; }
     .cm-ig-cell{ aspect-ratio: 3/4; background:#3a4d8f; border-radius:5px; display:block; overflow:hidden; text-decoration:none; position:relative; }
@@ -1206,11 +1208,13 @@
       <div class="cm-fact"><div class="cm-k">🎓 トップ大学</div><div class="cm-v" id="cm-p-univ"></div></div>
       <div class="cm-fact"><div class="cm-k">🏢 トップ企業</div><div class="cm-v" id="cm-p-company"></div></div>
     </div>
-    <div class="cm-label">🏛️ 世界遺産</div>
     <div class="cm-heritage-row">
-      <div class="cm-heritage-cell"><i style="font-size:15px;">🏯</i><div class="cm-data-pill" id="cm-p-heritage-cultural" style="background:rgba(240,153,123,0.18); color:#F0997B;"></div><div style="font-size:9px; color:#8fa0d6;">文化</div></div>
-      <div class="cm-heritage-cell"><i style="font-size:15px;">🏔️</i><div class="cm-data-pill" id="cm-p-heritage-natural" style="background:rgba(93,202,165,0.18); color:#5DCAA5;"></div><div style="font-size:9px; color:#8fa0d6;">自然</div></div>
-      <div class="cm-heritage-cell"><i style="font-size:15px;">🌗</i><div class="cm-data-pill" id="cm-p-heritage-mixed" style="background:rgba(168,155,235,0.18); color:#A89BEB;"></div><div style="font-size:9px; color:#8fa0d6;">複合</div></div>
+      <div class="cm-heritage-title">🏛️ 世界遺産</div>
+      <div class="cm-heritage-cells">
+        <div class="cm-heritage-cell"><i style="font-size:15px;">🏯</i><div class="cm-data-pill" id="cm-p-heritage-cultural" style="background:rgba(240,153,123,0.18); color:#F0997B;"></div><div style="font-size:9px; color:#8fa0d6;">文化</div></div>
+        <div class="cm-heritage-cell"><i style="font-size:15px;">🏔️</i><div class="cm-data-pill" id="cm-p-heritage-natural" style="background:rgba(93,202,165,0.18); color:#5DCAA5;"></div><div style="font-size:9px; color:#8fa0d6;">自然</div></div>
+        <div class="cm-heritage-cell"><i style="font-size:15px;">🌗</i><div class="cm-data-pill" id="cm-p-heritage-mixed" style="background:rgba(168,155,235,0.18); color:#A89BEB;"></div><div style="font-size:9px; color:#8fa0d6;">複合</div></div>
+      </div>
     </div>
 
     <div class="cm-label">📱 Instagram</div>
