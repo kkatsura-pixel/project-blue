@@ -45,7 +45,7 @@
     font-family: 'Anton', sans-serif;
     color: var(--red);
     letter-spacing: 0.35em;
-    font-size: 13px;
+    font-size: 16px;
     text-transform: uppercase;
   }
 
@@ -74,7 +74,7 @@
     position: absolute;
     inset: 0;
     background: url('https://raw.githubusercontent.com/kkatsura-pixel/project-blue/main/IMG_2269.png') center 20% / cover no-repeat;
-    opacity: 0.66;
+    opacity: 0.70;
     z-index: 0;
   }
 
@@ -310,7 +310,7 @@
   }
 
   .card-slider.video-carousel > .video-frame{
-    flex: 0 0 80%;
+    flex: 0 0 calc(100% - 38px);
     height: auto;
     padding-top: 56.25%;
   }
@@ -2019,7 +2019,7 @@
       function pauseTemporarily(){
         paused = true;
         clearTimeout(resumeTimeout);
-        resumeTimeout = setTimeout(function(){ paused = false; }, 4000);
+        resumeTimeout = setTimeout(function(){ paused = false; }, 3000);
       }
 
       scroller.addEventListener('touchstart', pauseTemporarily, { passive: true });
@@ -2035,7 +2035,7 @@
         let next = scroller.scrollLeft + step;
         if (next >= maxScroll - 4) next = 0;
         scroller.scrollTo({ left: next, behavior: 'smooth' });
-      }, 4000);
+      }, 3000);
     });
   });
 </script>
